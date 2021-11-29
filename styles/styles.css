@@ -30,6 +30,9 @@
    --very-dark-gray-blue: hsl(237, 17%, 21%);
    --very-dark-desaturated-blue: hsl(237, 23%, 32%);
 
+   /* hover */
+   --menu-hover: hsl(240, 2%, 94%);
+
    /* font */
    --font-size-10: 62.5%; /* 10px */
    --font-fam-overpass: "Overpass", sans-serif;
@@ -47,6 +50,7 @@ html {
 
 body {
    font-size: 1.6rem;
+   font-family: var(--font-fam-overpass);
    font-weight: var(--font-weight-400);
    color: var(--very-dark-grayish-blue-body-copy);
 }
@@ -62,45 +66,142 @@ body {
 .header {
    display: flex;
    flex-direction: column;
-   background-image: url("../images/bg-pattern-intro-mobile.svg");
-   background-position: top -30rem left -28rem;
+   gap: 5rem; /* between nav_bar & title */
+
+   background-image: url("../images/bg-pattern-intro-desktop.svg");
+   background-position: center;
    background-repeat: no-repeat;
-   background-size: 300%;
+   background-size: cover;
 
    background-color: var(--light-red-cta-text);
    padding: 4rem;
-   width: 100%;
    max-width: 48rem;
    color: var(--white-text);
+   text-align: center;
 }
 
 .logo_blogr {
-   width: 5rem;
-   height: 2rem;
+   width: 8rem;
+   height: 3rem;
+}
+
+/* list of menu  & login_signup btn is here */
+.header_nav_container {
+   display: flex;
+   justify-content: space-between;
+   position: relative;
+}
+
+/* display changing */
+.menus_login_signup_container {
+   display: flex;
+   flex-direction: column;
+   gap: 3rem;
+   width: 100%;
+   background-color: var(--white-text);
+   padding: 0 4rem 3rem 4rem;
+   border-radius: 1rem;
+
+   position: absolute;
+   top: 5rem;
 }
 
 .menus_container {
-   display: none;
+   display: flex;
+   flex-direction: column;
+   gap: 3rem; /* between each active list & last child */
+
+   padding: 4rem 0rem;
+   border-bottom: 0.1rem solid var(--grayish-blue-footer-text);
+}
+
+.active_list {
+   display: flex;
+   flex-direction: column;
+   gap: 2rem; /* between active_list & 1st children */
+}
+
+.menu_title {
+   display: flex;
+   gap: 2rem; /* between title & arrow */
+   justify-content: center;
+   align-items: center;
+
+   font-size: 1.8rem;
+   color: var(--very-dark-blue-headings);
+   font-weight: var(--font-weight-600);
+}
+
+.menu_title:hover {
+   cursor: pointer;
+}
+
+.arrow:hover {
+   cursor: pointer;
+}
+
+.products,
+.companies,
+.connects {
+   display: flex;
+   flex-direction: column;
+   gap: 2rem; /* between each children */
+   list-style-type: none;
+   padding: 2rem 0;
+}
+
+.products:hover,
+.companies:hover,
+.connects:hover {
+   cursor: pointer;
+   border-radius: 1rem;
+   background-color: var(--menu-hover);
+}
+
+/* all menu children */
+.products li a,
+.companies li a,
+.connects li a {
+   text-decoration: none;
+   color: var(--very-dark-grayish-blue-body-copy);
+   font-weight: var(--font-weight-600);
+   width: 100%;
 }
 
 .login_signup_container {
-   display: none;
+   display: flex;
+   flex-direction: column;
+   gap: 2rem; /* between login & signup */
+   align-items: center;
 }
 
-.logo_menu_container {
-   display: flex;
-   justify-content: space-between;
+.login_btn {
+   text-decoration: none;
+   font-size: 1.8rem;
+   color: var(--very-dark-gray-blue);
+   font-weight: var(--font-weight-600);
+}
+
+.signup_btn {
+   width: 40%;
+   padding: 1.5rem;
+   border: none;
+   border-radius: 3rem;
+   font-size: 1.8rem;
+   font-weight: var(--font-weight-600);
+   color: var(--white-text);
+   background-image: linear-gradient(90deg, var(--very-light-red), var(--light-red));
 }
 
 .burger_container {
    display: flex;
    flex-direction: column;
-   gap: 0.5rem; /* between each line */
+   gap: 0.4rem; /* between each line */
    justify-content: center;
 }
 
 .burger_line {
-   width: 5rem;
-   height: 0.5rem;
+   width: 3rem;
+   height: 0.4rem;
    background-color: var(--white-text);
 }
