@@ -16,90 +16,97 @@
    <body>
       <div class="container">
          <header class="header">
-            <nav class="header_nav_container">
-               <!-- /* logo is here */ -->
-               <div class="logo_container">
-                  <img src="./images/logo.svg" alt="Blogr" class="logo_blogr" />
-               </div>
+            <div class="header_container">
+               <nav class="header_nav_container">
+                  <!-- /* logo is here */ -->
+                  <div class="logo_container">
+                     <img src="./images/logo.svg" alt="Blogr" class="logo_blogr" />
+                  </div>
 
-               <!-- /* all menun is here */ -->
-               <div class="menus_login_signup_container">
-                  <div class="menus_container">
-                     <!-- /* product is here */ -->
-                     <div class="active_list product_container">
-                        <div class="menu_title">
-                           Product
-                           <span class="arrow">
-                              <img src="./images/icon-arrow-dark.svg" alt="Arrow" class="arrow_down" />
-                           </span>
+                  <!-- /* all menun is here */ -->
+                  <div class="menus_login_signup_container">
+                     <div class="menus_container">
+                        <!-- /* product is here */ -->
+                        <div class="active_list product_container">
+                           <div class="menu_title">
+                              <span class="name"> Product </span>
+                              <span class="arrow">
+                                 <img src="./images/icon-arrow-dark.svg" alt="Arrow" class="arrow_dark" />
+                                 <img src="./images/icon-arrow-light.svg" alt="Arrow" class="arrow_ligh" />
+                              </span>
+                           </div>
+                           <ul class="parent products">
+                              <li><a href="#overview" class="child product">Overview</a></li>
+                              <li><a href="#pricing" class="child product">Pricing</a></li>
+                              <li><a href="#marketplace" class="child product">Marketplace</a></li>
+                              <li><a href="#features" class="child product">Features</a></li>
+                              <li><a href="#integrations" class="child product">Integrations</a></li>
+                           </ul>
                         </div>
-                        <ul class="parent products">
-                           <li><a href="#overview" class="child product">Overview</a></li>
-                           <li><a href="#pricing" class="child product">Pricing</a></li>
-                           <li><a href="#marketplace" class="child product">Marketplace</a></li>
-                           <li><a href="#features" class="child product">Features</a></li>
-                           <li><a href="#integrations" class="child product">Integrations</a></li>
-                        </ul>
+
+                        <!-- /* company is here */ -->
+                        <div class="active_list company_container">
+                           <div class="menu_title">
+                              <span class="name"> Company </span>
+
+                              <span class="arrow">
+                                 <img src="./images/icon-arrow-dark.svg" alt="Arrow" class="arrow_dark" />
+                                 <img src="./images/icon-arrow-light.svg" alt="Arrow" class="arrow_ligh" />
+                              </span>
+                           </div>
+                           <ul class="parent companies">
+                              <li><a href="#about" class="child company">About</a></li>
+                              <li><a href="#team" class="child company">Team</a></li>
+                              <li><a href="#blog" class="child company">Blog</a></li>
+                              <li><a href="#careers" class="child company">Careers</a></li>
+                           </ul>
+                        </div>
+
+                        <!-- /* connect is here */ -->
+                        <div class="active_list connect_container">
+                           <div class="menu_title">
+                              <span class="name"> Connect </span>
+
+                              <span class="arrow">
+                                 <img src="./images/icon-arrow-dark.svg" alt="Arrow" class="arrow_dark" />
+                                 <img src="./images/icon-arrow-light.svg" alt="Arrow" class="arrow_ligh" />
+                              </span>
+                           </div>
+                           <ul class="parent connects">
+                              <li><a href="#contact" class="child connect">Contact</a></li>
+                              <li><a href="#newsletter" class="child connect">Newsletter</a></li>
+                              <li><a href="#linkedin" class="child connect">LinkedIn</a></li>
+                           </ul>
+                        </div>
                      </div>
 
-                     <!-- /* company is here */ -->
-                     <div class="active_list company_container">
-                        <div class="menu_title">
-                           Company
-                           <span class="arrow">
-                              <img src="./images/icon-arrow-dark.svg" alt="Arrow" class="arrow_down" />
-                           </span>
-                        </div>
-                        <ul class="parent companies">
-                           <li><a href="#about" class="child company">About</a></li>
-                           <li><a href="#team" class="child company">Team</a></li>
-                           <li><a href="#blog" class="child company">Blog</a></li>
-                           <li><a href="#careers" class="child company">Careers</a></li>
-                        </ul>
-                     </div>
-
-                     <!-- /* connect is here */ -->
-                     <div class="active_list connect_container">
-                        <div class="menu_title">
-                           Connect
-                           <span class="arrow">
-                              <img src="./images/icon-arrow-dark.svg" alt="Arrow" class="arrow_down" />
-                           </span>
-                        </div>
-                        <ul class="parent connects">
-                           <li><a href="#contact" class="child connect">Contact</a></li>
-                           <li><a href="#newsletter" class="child connect">Newsletter</a></li>
-                           <li><a href="#linkedin" class="child connect">LinkedIn</a></li>
-                        </ul>
+                     <!-- /* login & signup btn is here */ -->
+                     <div class="login_signup_container">
+                        <a href="#login" class="menu_cta login_btn">Login</a>
+                        <button type="button" class="btn menu_cta signup_btn">Sign Up</button>
                      </div>
                   </div>
 
-                  <!-- /* login & signup btn is here */ -->
-                  <div class="login_signup_container">
-                     <a href="#login" class="menu_cta login_btn">Login</a>
-                     <button type="button" class="btn menu_cta signup_btn">Sign Up</button>
+                  <!-- /*burger here */ -->
+                  <div class="burger_container">
+                     <div class="burger_line line1"></div>
+                     <div class="burger_line line2"></div>
+                     <div class="burger_line line3"></div>
                   </div>
-               </div>
+               </nav>
 
-               <!-- /*burger here */ -->
-               <div class="burger_container">
-                  <div class="burger_line line1"></div>
-                  <div class="burger_line line2"></div>
-                  <div class="burger_line line3"></div>
-               </div>
-            </nav>
+               <!-- /* title is here */ -->
+               <div class="title_free_learn_more_btn_container">
+                  <div class="title_details_container">
+                     <h1 class="title">A modern publishing platform</h1>
+                     <p class="details">Grow your audience and build your online brand</p>
+                  </div>
 
-            <!-- /* title is here */ -->
-            <div class="title_free_learn_more_btn_container">
-               <div class="title_details_container">
-                  <h1 class="title">A modern publishing platform</h1>
-                  <p class="details">Grow your audience and build your online brand</p>
-               </div>
-
-               <!-- /* free_learn_more_btn is here */ -->
-               <div class="free_learn_more_btn_container">
-                  <button type="button" class="btn header_cta free">Start for Free</button>
-                  <button type="button" class="btn header_cta learn_more">Learn More</button>
+                  <!-- /* free_learn_more_btn is here */ -->
+                  <div class="free_learn_more_btn_container">
+                     <button type="button" class="btn header_cta free_btn">Start for Free</button>
+                     <button type="button" class="btn header_cta learn_more_btn">Learn More</button>
+                  </div>
                </div>
             </div>
          </header>

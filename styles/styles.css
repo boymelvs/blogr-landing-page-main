@@ -65,20 +65,64 @@ body {
 
 /* ================= header start here ================= */
 .header {
+   background: linear-gradient(180deg, var(--very-light-red), var(--light-red));
+   border-bottom-left-radius: 10rem;
+}
+
+@media (min-width: 769px) {
+   .header {
+      width: 100%;
+   }
+}
+
+.header_container {
    display: flex;
    flex-direction: column;
-   gap: 5rem; /* between nav_bar & title */
+   gap: 10rem; /* between nav_bar & title */
 
-   background-image: url("../images/bg-pattern-intro-desktop.svg");
-   background-position: center;
+   background-image: url("../images/bg-pattern-intro-mobile.svg");
+   background-position: top -30rem left -32rem;
+   background-size: 350%;
    background-repeat: no-repeat;
-   background-size: cover;
 
-   background-color: var(--light-red-cta-text);
-   padding: 4rem;
-   max-width: 48rem;
+   padding: 4rem 2rem;
    color: var(--white-text);
    text-align: center;
+   border-bottom-left-radius: 10rem;
+}
+
+@media (min-width: 376px) and (max-width: 768px) {
+   .header_container {
+      gap: 15rem; /* between nav_bar & title */
+      background-position: top -30rem left -32rem;
+      background-size: 250%;
+   }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+   .header {
+      background: linear-gradient(-180deg, var(--very-light-red), var(--light-red));
+   }
+
+   .header_container {
+      background-image: url("../images/bg-pattern-intro-desktop.svg");
+      background-position: top -45rem left -20rem;
+      background-size: 150%;
+   }
+}
+
+@media (min-width: 1025px) {
+   .header {
+      background: linear-gradient(90deg, var(--very-light-red), var(--light-red));
+   }
+
+   .header_container {
+      background-image: url("../images/bg-pattern-intro-desktop.svg");
+      background-position: top -150rem left -60rem;
+      background-size: 250%;
+
+      padding: 4rem 7rem;
+   }
 }
 
 .logo_blogr {
@@ -89,10 +133,16 @@ body {
 /* container for logo, menus & burger */
 .header_nav_container {
    display: flex;
+   gap: 2rem; /* between logo & menus */
    justify-content: space-between;
    align-items: center;
-
    position: relative;
+}
+
+@media (min-width: 1025px) {
+   .header_nav_container {
+      gap: 4rem; /* between logo & menus */
+   }
 }
 
 /* container for menus & login, signup btn */
@@ -122,21 +172,21 @@ body {
    transform: translateX(0%);
 }
 
-/* container for menus */
+/* over all container for menu */
 .menus_container {
    display: flex;
    flex-direction: column;
-   gap: 3rem; /* between each active list & last child */
+   gap: 3rem; /* between each menu_title & last child */
 
    padding: 4rem 0rem;
    border-bottom: 0.1rem solid var(--grayish-blue-footer-text);
 }
 
-/* container of each parent name in menus */
+/* container of each title, parent */
 .active_list {
    display: flex;
    flex-direction: column;
-   gap: 2rem; /* between active_list & 1st children */
+   gap: 2rem; /* between title & 1st children */
 }
 
 .menu_title {
@@ -151,9 +201,15 @@ body {
    font-weight: var(--font-weight-600);
 }
 
-.menu_title:hover {
+.name:hover {
    cursor: pointer;
    text-decoration: underline;
+}
+
+@media (min-width: 769px) {
+   .arrow_dark {
+      display: none;
+   }
 }
 
 .arrow:hover {
@@ -210,25 +266,43 @@ body {
    flex-direction: column;
    gap: 2rem; /* between login & signup */
    align-items: center;
-   width: 100%;
    font-size: 2rem;
+}
+
+@media (min-width: 1025px) {
+   .login_signup_container {
+      gap: 5rem; /* between login & signup */
+   }
+
+   /* all parent */
+   .products,
+   .companies,
+   .connects {
+      position: absolute;
+      top: 7rem;
+
+      padding: 2rem;
+      background-color: var(--white-text);
+      border-radius: 1rem;
+   }
 }
 
 .login_btn {
    text-decoration: none;
    color: var(--very-dark-gray-blue);
-   font-weight: var(--font-weight-600);
+   font-weight: var(--font-weight-500);
 }
 
 .signup_btn {
-   width: 15rem;
+   width: 14rem;
    padding: 1.5rem;
    font-size: 1.7rem;
    border: none;
    border-radius: 3rem;
-   font-weight: var(--font-weight-600);
+   font-weight: var(--font-weight-700);
    color: var(--white-text);
-   background: linear-gradient(90deg, var(--very-light-red), var(--light-red));
+   background: linear-gradient(45deg, var(--very-light-red), var(--light-red));
+   transition: transform 350ms;
 }
 
 /* same as login & signup btn */
@@ -277,4 +351,136 @@ body {
    width: 2.8rem;
    transform: rotate(-45deg);
    transform-origin: left bottom;
+}
+
+/* title is here */
+.title_free_learn_more_btn_container {
+   display: flex;
+   flex-direction: column;
+   gap: 5rem; /* between title & free_learn_more btn */
+}
+
+.title_details_container {
+   display: flex;
+   flex-direction: column;
+   gap: 2rem; /* between title & details */
+   padding: 0 2rem;
+}
+
+.title {
+   font-family: var(--font-fam-overpass);
+   font-weight: var(--font-weight-600);
+}
+
+.free_learn_more_btn_container {
+   display: flex;
+   gap: 1rem; /* between free_btn & learn_more btn*/
+   justify-content: center;
+   padding: 0 2rem;
+   padding-bottom: 10rem;
+}
+
+.header_cta {
+   width: 12rem;
+   padding: 1.5rem;
+   border: none;
+   border-radius: 3rem;
+   transition: all 350ms;
+}
+
+.free_btn {
+   font-family: var(--font-fam-ubuntu);
+   color: var(--light-red-cta-text);
+   font-weight: var(--font-weight-700);
+}
+
+.free_btn:hover {
+   cursor: pointer;
+   color: var(--white-text);
+   background-color: var(--very-ligh-red-cta-hover-bg);
+}
+
+.learn_more_btn {
+   font-family: var(--font-fam-ubuntu);
+   font-weight: var(--font-weight-700);
+   background-color: var(--light-red-cta-text);
+   color: var(--white-text);
+   border: 0.1rem solid var(--white-text);
+}
+
+.learn_more_btn:hover {
+   cursor: pointer;
+   color: var(--light-red-cta-text);
+   background-color: var(--white-text);
+}
+
+/* ======================================================= */
+@media (min-width: 769px) {
+   .menus_login_signup_container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      visibility: visible;
+      background-color: transparent;
+      padding: 0;
+      position: unset;
+      transform: unset;
+   }
+
+   /* container for menus */
+   .menus_container {
+      flex-direction: row;
+      gap: 3.5rem;
+      padding: 0;
+      border: none;
+   }
+
+   /* container of each title, parent */
+   .active_list {
+      display: flex;
+      flex-direction: column;
+   }
+
+   .menu_title {
+      color: var(--white-text);
+      position: relative;
+   }
+
+   /* all parent */
+   .products,
+   .companies,
+   .connects {
+      position: absolute;
+      top: 4rem;
+
+      padding: 2rem 5rem;
+      background-color: var(--white-text);
+      border-radius: 1rem;
+   }
+
+   /* nav cta container */
+   .login_signup_container {
+      flex-direction: row;
+   }
+
+   .login_btn {
+      color: var(--white-text);
+   }
+
+   .signup_btn {
+      color: var(--light-red-cta-text);
+      background: linear-gradient(45deg, var(--white-text), var(--white-text));
+   }
+
+   .signup_btn:hover {
+      cursor: pointer;
+      color: var(--white-text);
+      background: linear-gradient(45deg, var(--very-ligh-red-cta-hover-bg), var(--very-ligh-red-cta-hover-bg));
+   }
+
+   /* all about burger is here */
+   .burger_container {
+      display: none;
+   }
 }
