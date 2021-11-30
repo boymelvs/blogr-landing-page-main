@@ -16,7 +16,7 @@ const addRemoveClasses = (value) => {
             /* adding active classes to display menu  */
          } else {
             console.log("this", value);
-            value.classList.toggle("active");
+            value.classList.add("active");
          }
       }, 0.1);
    };
