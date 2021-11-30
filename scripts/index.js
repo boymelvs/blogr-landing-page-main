@@ -14,10 +14,11 @@ const addRemoveClasses = (value) => {
             }, 150);
 
             /* adding active classes to display menu  */
-         } else {
-            console.log("this", value);
-            value.classList.add("active");
          }
+         // else {
+         // console.log("this", value);
+         // value.classList.add("active");
+         // }
       }, 0.1);
    };
 
@@ -32,14 +33,17 @@ const addRemoveClasses = (value) => {
 };
 
 /* provide looping to select individual element */
-const selectEach = (selects, key) => {
+const selectEachElem = (selects, key) => {
    selects.forEach((select, select_key) => {
       /* for burger */
       if (select.classList.contains("burger_line")) {
-         addRemoveClasses(select);
+         select.classList.add("active");
       }
 
       if (select_key === key) {
+         console.log("this select", select);
+         select.classList.toggle("active");
+      } else {
          addRemoveClasses(select);
       }
    });
@@ -53,8 +57,8 @@ const isActive = (elements, value, lines) => {
       elements.forEach((element, elem_key) => {
          element.addEventListener("click", () => {
             if (element.classList.contains("menu_title")) {
-               selectEach(value, elem_key);
-               selectEach(lines, elem_key);
+               selectEachElem(value, elem_key);
+               selectEachElem(lines, elem_key);
             }
          });
       });
@@ -63,7 +67,7 @@ const isActive = (elements, value, lines) => {
    } else {
       elements.addEventListener("click", () => {
          /* listener for burger */
-         selectEach(lines);
+         selectEachElem(lines);
          addRemoveClasses(value);
       });
    }
