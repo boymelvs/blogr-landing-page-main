@@ -132,7 +132,8 @@ body {
    font-weight: var(--font-weight-600);
 }
 
-.menu_title:hover {
+.menu_title:hover ~ .dropdown {
+   display: flex;
    cursor: pointer;
 }
 
@@ -143,16 +144,27 @@ body {
 .products,
 .companies,
 .connects {
-   display: flex;
    flex-direction: column;
    gap: 2rem; /* between each children */
    list-style-type: none;
    padding: 2rem 0;
+   cursor: pointer;
 }
 
-.products:hover,
+.dropdown {
+   display: none;
+}
+
+/* .products:hover ~ .dropdown,
 .companies:hover,
 .connects:hover {
+   display: block;
+   cursor: pointer;
+   border-radius: 1rem;
+   background-color: var(--menu-hover);
+} */
+
+.products:hover {
    cursor: pointer;
    border-radius: 1rem;
    background-color: var(--menu-hover);
@@ -168,7 +180,7 @@ body {
    width: 100%;
 }
 
-.login_signup_container {
+.dropdown .login_signup_container {
    display: flex;
    flex-direction: column;
    gap: 2rem; /* between login & signup */
