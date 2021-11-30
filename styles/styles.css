@@ -31,7 +31,7 @@
    --very-dark-desaturated-blue: hsl(237, 23%, 32%);
 
    /* hover */
-   --menu-hover: hsl(240, 2%, 94%);
+   --menu-hover-color: hsl(240, 2%, 94%);
 
    /* font */
    --font-size-10: 62.5%; /* 10px */
@@ -50,7 +50,7 @@ html {
 
 body {
    font-size: 1.6rem;
-   font-family: var(--font-fam-overpass);
+   font-family: var(--font-fam-ubuntu);
    font-weight: var(--font-weight-400);
    color: var(--very-dark-grayish-blue-body-copy);
 }
@@ -63,6 +63,7 @@ body {
    min-width: 32rem;
 }
 
+/* ================= header start here ================= */
 .header {
    display: flex;
    flex-direction: column;
@@ -85,16 +86,18 @@ body {
    height: 3rem;
 }
 
-/* list of menu  & login_signup btn is here */
+/* container for logo, menus & burger */
 .header_nav_container {
    display: flex;
    justify-content: space-between;
+   align-items: center;
+
    position: relative;
 }
 
-/* display changing */
+/* container for menus & login, signup btn */
 .menus_login_signup_container {
-   display: flex;
+   display: none;
    flex-direction: column;
    gap: 3rem;
    width: 100%;
@@ -104,8 +107,22 @@ body {
 
    position: absolute;
    top: 5rem;
+   visibility: hidden;
+   transform: translateX(-100%);
+   transition: all 350ms ease-in-out;
 }
 
+/* classes for javascript */
+.menus_login_signup_container.show {
+   display: flex;
+}
+
+.menus_login_signup_container.active {
+   visibility: visible;
+   transform: translateX(0%);
+}
+
+/* container for menus */
 .menus_container {
    display: flex;
    flex-direction: column;
@@ -115,6 +132,7 @@ body {
    border-bottom: 0.1rem solid var(--grayish-blue-footer-text);
 }
 
+/* container of each parent name in menus */
 .active_list {
    display: flex;
    flex-direction: column;
@@ -127,23 +145,31 @@ body {
    justify-content: center;
    align-items: center;
 
-   font-size: 1.8rem;
+   font-size: 2rem;
    color: var(--very-dark-blue-headings);
+   font-family: var(--font-fam-overpass);
    font-weight: var(--font-weight-600);
 }
 
-.menu_title:hover ~ .dropdown {
-   display: flex;
+.menu_title:hover {
    cursor: pointer;
+   text-decoration: underline;
 }
 
 .arrow:hover {
    cursor: pointer;
+   transform: scale(1.25);
 }
 
+.arrow.active {
+   transform: rotate(180deg);
+}
+
+/* all parent */
 .products,
 .companies,
 .connects {
+   display: none;
    flex-direction: column;
    gap: 2rem; /* between each children */
    list-style-type: none;
@@ -151,60 +177,67 @@ body {
    cursor: pointer;
 }
 
-.dropdown {
-   display: none;
+/* same classes as products, companies & connects */
+.parent:hover {
+   border-radius: 1rem;
+   background-color: var(--menu-hover-color);
 }
 
-/* .products:hover ~ .dropdown,
-.companies:hover,
-.connects:hover {
-   display: block;
-   cursor: pointer;
-   border-radius: 1rem;
-   background-color: var(--menu-hover);
-} */
-
-.products:hover {
-   cursor: pointer;
-   border-radius: 1rem;
-   background-color: var(--menu-hover);
+/* classes for javascript */
+.parent.active {
+   display: flex;
 }
 
-/* all menu children */
-.products li a,
-.companies li a,
-.connects li a {
+/* all children */
+.product,
+.company,
+.connect {
    text-decoration: none;
    color: var(--very-dark-grayish-blue-body-copy);
-   font-weight: var(--font-weight-600);
    width: 100%;
+   font-weight: var(--font-weight-500);
 }
 
-.dropdown .login_signup_container {
+/* same classes as product, company & connect */
+.child:hover {
+   font-weight: var(--font-weight-700);
+   transform: scale(1.1);
+}
+
+/* nav cta container */
+.login_signup_container {
    display: flex;
    flex-direction: column;
    gap: 2rem; /* between login & signup */
    align-items: center;
+   width: 100%;
+   font-size: 2rem;
 }
 
 .login_btn {
    text-decoration: none;
-   font-size: 1.8rem;
    color: var(--very-dark-gray-blue);
    font-weight: var(--font-weight-600);
 }
 
 .signup_btn {
-   width: 40%;
+   width: 15rem;
    padding: 1.5rem;
+   font-size: 1.7rem;
    border: none;
    border-radius: 3rem;
-   font-size: 1.8rem;
    font-weight: var(--font-weight-600);
    color: var(--white-text);
-   background-image: linear-gradient(90deg, var(--very-light-red), var(--light-red));
+   background: linear-gradient(90deg, var(--very-light-red), var(--light-red));
 }
 
+/* same as login & signup btn */
+.menu_cta:hover {
+   cursor: pointer;
+   transform: scale(1.1);
+}
+
+/* all about burger is here */
 .burger_container {
    display: flex;
    flex-direction: column;
@@ -212,8 +245,36 @@ body {
    justify-content: center;
 }
 
+.burger_container:hover {
+   cursor: pointer;
+   transform: scale(1.1);
+}
+
 .burger_line {
-   width: 3rem;
-   height: 0.4rem;
-   background-color: var(--white-text);
+   width: 4rem;
+   border: 0.2rem solid var(--white-text);
+   transition: all 350ms;
+}
+
+/* classes for javascript */
+.line1.active {
+   /* position: relative; */
+   /* top: -1.2rem; */
+
+   width: 2.8rem;
+   transform: rotate(45deg);
+   transform-origin: left top;
+}
+
+/* classes for javascript */
+.line2.active {
+   display: none;
+}
+
+/* classes for javascript */
+.line3.active {
+   margin-top: 1rem;
+   width: 2.8rem;
+   transform: rotate(-45deg);
+   transform-origin: left bottom;
 }
