@@ -1,34 +1,31 @@
 "use strict";
 
+const delay = (value) => {
+   if (value.classList.contains("active")) {
+      value.classList.remove("active");
+
+      /* delay on removing show classes */
+      setTimeout(() => {
+         value.classList.remove("show");
+      }, 150);
+
+      /* adding active classes to display  */
+   } else {
+      value.classList.add("active");
+   }
+};
+
 /* provide add & remove clasess */
 const addRemoveClasses = (value) => {
-   const delay = () => {
-      /* after changing display from none to flex execute this */
-      setTimeout(() => {
-         if (value.classList.contains("active")) {
-            value.classList.remove("active");
-
-            /* delay on removing show classes */
-            setTimeout(() => {
-               value.classList.remove("show");
-            }, 150);
-
-            /* adding active classes to display menu  */
-         }
-         // else {
-         // console.log("this", value);
-         // value.classList.add("active");
-         // }
-      }, 0.1);
-   };
-
    if (value.classList.contains("show")) {
-      delay();
+      delay(value);
 
       /* adding show classes to change display from none to flex */
    } else {
       value.classList.add("show");
-      delay();
+      setTimeout(() => {
+         delay(value);
+      }, 0.1);
    }
 };
 
@@ -37,14 +34,13 @@ const selectEachElem = (selects, key) => {
    selects.forEach((select, select_key) => {
       /* for burger */
       if (select.classList.contains("burger_line")) {
-         select.classList.add("active");
+         addRemoveClasses(select);
       }
 
       if (select_key === key) {
-         console.log("this select", select);
          select.classList.toggle("active");
       } else {
-         addRemoveClasses(select);
+         select.classList.remove("active");
       }
    });
 };

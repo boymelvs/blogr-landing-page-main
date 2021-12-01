@@ -59,20 +59,15 @@ body {
    display: flex;
    flex-direction: column;
    align-items: center;
-   gap: 5rem; /* between header, main_content & footer */
+   gap: 8rem; /* between header, main_content & footer */
    min-width: 32rem;
 }
 
 /* ================= header start here ================= */
 .header {
    background: linear-gradient(180deg, var(--very-light-red), var(--light-red));
-   border-bottom-left-radius: 10rem;
-}
-
-@media (min-width: 769px) {
-   .header {
-      width: 100%;
-   }
+   border-bottom-left-radius: 8rem;
+   width: 100%;
 }
 
 .header_container {
@@ -88,7 +83,7 @@ body {
    padding: 4rem 2rem;
    color: var(--white-text);
    text-align: center;
-   border-bottom-left-radius: 10rem;
+   border-bottom-left-radius: 8rem;
 }
 
 @media (min-width: 376px) and (max-width: 768px) {
@@ -118,9 +113,8 @@ body {
 
    .header_container {
       background-image: url("../images/bg-pattern-intro-desktop.svg");
-      background-position: top -150rem left -60rem;
-      background-size: 250%;
-
+      background-position: top -130rem left -40rem;
+      background-size: 210%;
       padding: 4rem 7rem;
    }
 }
@@ -139,17 +133,11 @@ body {
    position: relative;
 }
 
-@media (min-width: 1025px) {
-   .header_nav_container {
-      gap: 4rem; /* between logo & menus */
-   }
-}
-
 /* container for menus & login, signup btn */
 .menus_login_signup_container {
    display: none;
    flex-direction: column;
-   gap: 3rem;
+   gap: 3rem; /* between menus container & login signup btn */
    width: 100%;
    background-color: var(--white-text);
    padding: 0 4rem 3rem 4rem;
@@ -160,6 +148,20 @@ body {
    visibility: hidden;
    transform: translateX(-100%);
    transition: all 350ms ease-in-out;
+}
+
+@media (min-width: 769px) {
+   .menus_login_signup_container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      visibility: visible;
+      background-color: transparent;
+      padding: 0;
+      position: unset;
+      transform: unset;
+   }
 }
 
 /* classes for javascript */
@@ -182,11 +184,18 @@ body {
    border-bottom: 0.1rem solid var(--grayish-blue-footer-text);
 }
 
-/* container of each title, parent */
+@media (min-width: 769px) {
+   /* over all container for menu */
+   .menus_container {
+      flex-direction: row;
+      gap: 3.5rem; /* between each menu_title & last child */
+      padding: 0;
+      border: none;
+   }
+}
+
 .active_list {
-   display: flex;
-   flex-direction: column;
-   gap: 2rem; /* between title & 1st children */
+   position: relative;
 }
 
 .menu_title {
@@ -199,6 +208,12 @@ body {
    color: var(--very-dark-blue-headings);
    font-family: var(--font-fam-overpass);
    font-weight: var(--font-weight-600);
+}
+
+@media (min-width: 769px) {
+   .menu_title {
+      color: var(--white-text);
+   }
 }
 
 .name:hover {
@@ -229,8 +244,23 @@ body {
    flex-direction: column;
    gap: 2rem; /* between each children */
    list-style-type: none;
-   padding: 2rem 0;
+   padding-top: 2rem;
    cursor: pointer;
+}
+
+@media (min-width: 769px) {
+   /* all parent */
+   .products,
+   .companies,
+   .connects {
+      position: absolute;
+      top: 4rem;
+
+      padding: 2rem 5rem;
+      background-color: var(--white-text);
+      border-radius: 0.5rem;
+      width: 20rem;
+   }
 }
 
 /* same classes as products, companies & connects */
@@ -269,21 +299,16 @@ body {
    font-size: 2rem;
 }
 
+@media (min-width: 769px) {
+   /* nav cta container */
+   .login_signup_container {
+      flex-direction: row;
+   }
+}
+
 @media (min-width: 1025px) {
    .login_signup_container {
       gap: 5rem; /* between login & signup */
-   }
-
-   /* all parent */
-   .products,
-   .companies,
-   .connects {
-      position: absolute;
-      top: 7rem;
-
-      padding: 2rem;
-      background-color: var(--white-text);
-      border-radius: 1rem;
    }
 }
 
@@ -291,6 +316,12 @@ body {
    text-decoration: none;
    color: var(--very-dark-gray-blue);
    font-weight: var(--font-weight-500);
+}
+
+@media (min-width: 769px) {
+   .login_btn {
+      color: var(--white-text);
+   }
 }
 
 .signup_btn {
@@ -305,10 +336,25 @@ body {
    transition: transform 350ms;
 }
 
+@media (min-width: 769px) {
+   .signup_btn {
+      color: var(--light-red-cta-text);
+      background: linear-gradient(45deg, var(--white-text), var(--white-text));
+   }
+}
+
 /* same as login & signup btn */
 .menu_cta:hover {
    cursor: pointer;
    transform: scale(1.1);
+}
+
+@media (min-width: 769px) {
+   .signup_btn:hover {
+      cursor: pointer;
+      color: var(--white-text);
+      background: linear-gradient(45deg, var(--very-ligh-red-cta-hover-bg), var(--very-ligh-red-cta-hover-bg));
+   }
 }
 
 /* all about burger is here */
@@ -324,6 +370,13 @@ body {
    transform: scale(1.1);
 }
 
+@media (min-width: 769px) {
+   /* all about burger is here */
+   .burger_container {
+      display: none;
+   }
+}
+
 .burger_line {
    width: 4rem;
    border: 0.2rem solid var(--white-text);
@@ -332,9 +385,6 @@ body {
 
 /* classes for javascript */
 .line1.active {
-   /* position: relative; */
-   /* top: -1.2rem; */
-
    width: 2.8rem;
    transform: rotate(45deg);
    transform-origin: left top;
@@ -414,73 +464,88 @@ body {
    background-color: var(--white-text);
 }
 
-/* ======================================================= */
-@media (min-width: 769px) {
-   .menus_login_signup_container {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      visibility: visible;
-      background-color: transparent;
-      padding: 0;
-      position: unset;
-      transform: unset;
-   }
+/* ================= main content start here ================= */
 
-   /* container for menus */
-   .menus_container {
-      flex-direction: row;
-      gap: 3.5rem;
-      padding: 0;
-      border: none;
-   }
+.main_content {
+   display: flex;
+   flex-direction: column;
+   gap: 5rem; /* between each section */
+   align-items: center;
+   text-align: center;
+   width: 100%;
+   font-family: var(--font-fam-overpass);
+}
 
-   /* container of each title, parent */
-   .active_list {
-      display: flex;
-      flex-direction: column;
-   }
+/* section 1 editor is here */
+.editor_title_image_description_container {
+   display: flex;
+   flex-direction: column;
+   gap: 4rem; /* between title, image & desscription */
+}
 
-   .menu_title {
-      color: var(--white-text);
-      position: relative;
-   }
+.editor_description_container {
+   display: flex;
+   flex-direction: column;
+   gap: 4rem; /* between each description */
+}
 
-   /* all parent */
-   .products,
-   .companies,
-   .connects {
-      position: absolute;
-      top: 4rem;
+.description {
+   display: flex;
+   flex-direction: column;
+   gap: 2rem; /* between title & details */
+   line-height: 2.5rem;
+}
 
-      padding: 2rem 5rem;
-      background-color: var(--white-text);
-      border-radius: 1rem;
-   }
+.description_title {
+   font-weight: var(--font-weight-600);
+   padding: 0 7rem;
+}
 
-   /* nav cta container */
-   .login_signup_container {
-      flex-direction: row;
-   }
+.description_details {
+   padding: 0 5rem;
+}
 
-   .login_btn {
-      color: var(--white-text);
-   }
+/* section 2 state of the art is here */
+.state_of_the_art_container {
+   display: flex;
+   flex-direction: column;
+}
 
-   .signup_btn {
-      color: var(--light-red-cta-text);
-      background: linear-gradient(45deg, var(--white-text), var(--white-text));
-   }
+.phones {
+   width: 100%;
+   height: 100%;
+}
 
-   .signup_btn:hover {
-      cursor: pointer;
-      color: var(--white-text);
-      background: linear-gradient(45deg, var(--very-ligh-red-cta-hover-bg), var(--very-ligh-red-cta-hover-bg));
-   }
+.infra_bg_container {
+   background-image: url("../images/bg-pattern-circles.svg");
+   background-position: top -25rem left -11rem;
+   background-repeat: no-repeat;
+   background-size: 160%;
 
-   /* all about burger is here */
-   .burger_container {
-      display: none;
-   }
+   margin-top: -21rem;
+   z-index: -1;
+
+   border-radius: 0 8rem 0 8rem;
+   background-color: var(--very-dark-gray-blue);
+   padding-bottom: 10rem;
+}
+
+.infra_title_description_container {
+   margin-top: 21rem;
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+   color: var(--grayish-blue-footer-text);
+}
+
+.infra_title {
+   font-size: 3.5rem;
+
+   font-weight: var(--font-weight-600);
+   padding: 0 3rem;
+}
+
+.infra_description {
+   line-height: 2.5rem;
+   padding: 0 4rem;
 }
