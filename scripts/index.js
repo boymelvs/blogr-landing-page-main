@@ -31,15 +31,18 @@ const addRemoveClasses = (value) => {
 
 /* provide looping to select individual element */
 const selectEachElem = (selects, key) => {
+   let isClose = true;
    selects.forEach((select, select_key) => {
       /* for burger */
       if (select.classList.contains("burger_line")) {
-         addRemoveClasses(select);
+         delay(select);
+         isClose = false;
       }
 
       if (select_key === key) {
-         select.classList.toggle("active");
-      } else {
+         addRemoveClasses(select);
+      } else if (isClose) {
+         delay(select);
          select.classList.remove("active");
       }
    });

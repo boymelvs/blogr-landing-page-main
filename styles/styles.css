@@ -133,6 +133,13 @@ body {
    position: relative;
 }
 
+@media (min-width: 1025px) {
+   /* container for logo, menus & burger */
+   .header_nav_container {
+      gap: 20rem; /* between logo & menus */
+   }
+}
+
 /* container for menus & login, signup btn */
 .menus_login_signup_container {
    display: none;
@@ -245,7 +252,10 @@ body {
    gap: 2rem; /* between each children */
    list-style-type: none;
    padding-top: 2rem;
-   cursor: pointer;
+
+   transform: translateX(-10%);
+   visibility: hidden;
+   transition: all 350ms;
 }
 
 @media (min-width: 769px) {
@@ -255,23 +265,32 @@ body {
    .connects {
       position: absolute;
       top: 4rem;
+      transform: translateY(-150%);
 
+      visibility: hidden;
       padding: 2rem 5rem;
       background-color: var(--white-text);
       border-radius: 0.5rem;
       width: 20rem;
+      transition: all 350ms;
    }
 }
 
 /* same classes as products, companies & connects */
 .parent:hover {
+   cursor: pointer;
    border-radius: 1rem;
    background-color: var(--menu-hover-color);
 }
 
 /* classes for javascript */
-.parent.active {
+.parent.show {
    display: flex;
+}
+
+.parent.active {
+   visibility: visible;
+   transform: translateY(0%);
 }
 
 /* all children */
@@ -370,13 +389,6 @@ body {
    transform: scale(1.1);
 }
 
-@media (min-width: 769px) {
-   /* all about burger is here */
-   .burger_container {
-      display: none;
-   }
-}
-
 .burger_line {
    width: 4rem;
    border: 0.2rem solid var(--white-text);
@@ -401,6 +413,13 @@ body {
    width: 2.8rem;
    transform: rotate(-45deg);
    transform-origin: left bottom;
+}
+
+@media (min-width: 769px) {
+   /* all about burger is here */
+   .burger_container {
+      display: none;
+   }
 }
 
 /* title is here */
