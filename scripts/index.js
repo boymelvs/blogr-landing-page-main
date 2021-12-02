@@ -41,6 +41,7 @@ const selectEachElem = (selects, key) => {
 
       if (select_key === key) {
          addRemoveClasses(select);
+         // console.log("this", select);
       } else if (isClose) {
          delay(select);
          select.classList.remove("active");
@@ -81,7 +82,7 @@ isActive(burger, menu, burgerLines);
 
 /* inside menu container */
 const menuTitles = document.querySelectorAll(".menu_title");
-const arrows = document.querySelectorAll(".arrow");
+const arrows = document.querySelectorAll(".arrows");
 const parents = document.querySelectorAll(".parent");
 
 isActive(menuTitles, parents, arrows);
