@@ -132,7 +132,7 @@ body {
    position: relative;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1000px) {
    .header_nav_container {
       gap: 10rem; /* between logo & menus */
    }
@@ -193,9 +193,15 @@ body {
    /* over all container for menu */
    .menus_container {
       flex-direction: row;
-      gap: 3.5rem; /* between each menu_title */
+      gap: 2rem; /* between each menu_title */
       padding: 0;
       border: none;
+   }
+}
+
+@media (min-width: 1000px) {
+   .menus_container {
+      gap: 5rem; /* between each menu_title */
    }
 }
 
