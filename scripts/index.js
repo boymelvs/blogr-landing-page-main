@@ -59,6 +59,7 @@ const isActive = (elements, value, lines) => {
       elements.forEach((element, elem_key) => {
          element.addEventListener("click", () => {
             if (element.classList.contains("menu_title")) {
+               selectEachElem(elements, elem_key);
                selectEachElem(value, elem_key);
                selectEachElem(lines, elem_key);
             }

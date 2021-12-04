@@ -215,21 +215,35 @@ body {
    justify-content: center;
    align-items: center;
 
-   font-size: 2rem;
    color: var(--very-dark-blue-headings);
    font-family: var(--font-fam-overpass);
    font-weight: var(--font-weight-600);
 }
 
-@media (min-width: 769px) {
-   .menu_title {
-      color: var(--white-text);
-   }
+.menu_title.active {
+   text-decoration: underline;
 }
 
 .name:hover {
    cursor: pointer;
    text-decoration: underline;
+}
+
+@media (min-width: 769px) {
+   .name {
+      color: var(--white-text);
+      opacity: 0.7;
+   }
+
+   .name:hover {
+      opacity: 1;
+   }
+
+   .menu_title.active {
+      color: var(--white-text);
+      text-decoration: underline;
+      opacity: 1;
+   }
 }
 
 .arrows:hover {
