@@ -2,6 +2,8 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
 *,
 ::before,
 ::after {
@@ -37,6 +39,7 @@
    --font-size-10: 62.5%; /* 10px */
    --font-fam-overpass: "Overpass", sans-serif;
    --font-fam-ubuntu: "Ubuntu", sans-serif;
+   --font-fam-space-mono: "Space Mono", monospace;
    --font-weight-300: 300;
    --font-weight-400: 400;
    --font-weight-500: 500;
@@ -61,13 +64,6 @@ body {
    align-items: center;
    gap: 5rem; /* between header, main_content & footer */
    min-width: 32rem;
-   overflow: hidden;
-}
-
-@media (min-width: 769px) {
-   .container {
-      gap: 15rem; /* between header, main_content & footer */
-   }
 }
 
 /* ================= ================= header start here ================= ================= */
@@ -127,11 +123,6 @@ body {
    }
 }
 
-.logo_blogr {
-   width: 8rem;
-   height: 3rem;
-}
-
 /* container for logo, menus & burger */
 .header_nav_container {
    display: flex;
@@ -142,7 +133,6 @@ body {
 }
 
 @media (min-width: 1025px) {
-   /* container for logo, menus & burger */
    .header_nav_container {
       gap: 10rem; /* between logo & menus */
    }
@@ -358,13 +348,12 @@ body {
    text-decoration: none;
    color: var(--very-dark-grayish-blue-body-copy);
    width: 100%;
-   font-weight: var(--font-weight-500);
+   font-weight: var(--font-weight-400);
 }
 
 /* same classes as product, company & connect */
 .child:hover {
    font-weight: var(--font-weight-700);
-   transform: scale(1.1);
 }
 
 /* nav cta container */
@@ -474,7 +463,6 @@ body {
 }
 
 @media (min-width: 769px) {
-   /* all about burger is here */
    .burger_container {
       display: none;
    }
@@ -542,7 +530,6 @@ body {
 }
 
 /* ================= ================= main content start here ================= ================= */
-
 .main_content {
    display: flex;
    flex-direction: column;
@@ -555,8 +542,11 @@ body {
 
 @media (min-width: 769px) {
    .main_content {
+      padding-top: 10rem;
+      padding-bottom: 20rem;
       gap: 30rem; /* between each section */
       max-width: 144rem;
+      overflow: hidden;
    }
 }
 
@@ -605,7 +595,7 @@ body {
    padding: 0 5rem;
 }
 
-@media (min-width: 769px) and (max-width: 1440px) {
+@media (min-width: 769px) {
    .editor_title_image_description_container {
       display: flex;
       flex-direction: row-reverse;
@@ -835,8 +825,8 @@ body {
       display: unset;
       position: absolute;
       margin-top: -20rem;
-      margin-left: -15rem;
-      width: 75rem;
+      margin-left: -20rem;
+      width: 80rem;
       height: 70rem;
    }
 }
@@ -882,8 +872,97 @@ body {
    }
 }
 
-/* footer start here */
-
+/* ================= ================= footer start here ================= ================= */
 footer {
+   display: flex;
+   flex-direction: column;
+   gap: 5rem; /* between menus & coded_by */
+   align-items: center;
+   padding-top: 5rem;
+   border-top-right-radius: 8rem;
+   background-color: var(--very-dark-black-blue-footer-bg);
+   color: var(--grayish-blue-footer-text);
    width: 100%;
+   text-align: center;
+}
+
+.footer_logo_menus_container {
+   display: flex;
+   flex-direction: column;
+   gap: 3rem; /* between each parent */
+   align-items: center;
+}
+
+@media (min-width: 481px) {
+   footer {
+      max-width: 144rem;
+   }
+
+   .footer_logo_menus_container {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-evenly;
+      width: 100%;
+   }
+}
+
+.footer_products,
+.footer_company,
+.footer_connect {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem; /* between parent & child */
+   align-items: center;
+}
+
+@media (min-width: 481px) {
+   .footer_products,
+   .footer_company,
+   .footer_connect {
+      align-items: flex-start;
+      gap: 2rem; /* between parent & child */
+   }
+}
+
+.footer_name {
+   font-size: 2rem;
+   color: var(--grayish-blue-footer-text);
+   font-family: var(--font-fam-overpass);
+   font-weight: var(--font-weight-600);
+}
+
+.footer_parent_menu {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem; /* between each child */
+   align-items: center;
+   list-style-type: none;
+   width: 10rem;
+}
+
+@media (min-width: 481px) {
+   .footer_parent_menu {
+      align-items: flex-start;
+   }
+}
+
+.footer_child {
+   text-decoration: none;
+   color: var(--grayish-blue-footer-text);
+}
+
+.footer_child:hover {
+   font-weight: var(--font-weight-700);
+   text-decoration: underline;
+}
+
+.coded_by {
+   font-family: var(--font-fam-space-mono);
+   font-size: 1.2rem;
+   padding: 1rem 0;
+}
+
+.coded_by a {
+   text-decoration: none;
+   color: var(--very-light-red);
 }
