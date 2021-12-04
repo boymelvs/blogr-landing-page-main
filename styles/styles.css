@@ -152,7 +152,7 @@ body {
    top: 5rem;
    visibility: hidden;
    transform: translateX(-100%);
-   transition: all 350ms ease-in-out;
+   transition: all 300ms ease-in-out;
 }
 
 @media (min-width: 769px) {
@@ -243,13 +243,7 @@ body {
    align-items: center;
    width: 2rem;
    height: 2rem;
-   animation: arrowDown 350ms ease-in-out;
-}
-
-.arrow_dark,
-.arrow_light {
-   width: 1.5rem;
-   height: 1.5rem;
+   animation: arrowDown 300ms ease-in-out;
 }
 
 @media (min-width: 769px) {
@@ -265,7 +259,7 @@ body {
 }
 
 .arrows.active {
-   animation: arrowUp 350ms ease-in-out;
+   animation: arrowUp 300ms ease-in-out;
    animation-fill-mode: forwards;
 }
 
@@ -321,9 +315,11 @@ body {
    list-style-type: none;
    padding: 1rem 0;
 
-   transform: translateY(-150%);
+   max-height: 0;
+   border-radius: 0.5rem;
    visibility: hidden;
-   transition: all 350ms ease-in-out;
+   transition: all 300ms ease-in-out;
+   background-color: var(--menu-hover-color);
 }
 
 @media (min-width: 769px) {
@@ -334,12 +330,11 @@ body {
       position: absolute;
       top: 4rem;
 
-      visibility: hidden;
+      max-height: unset;
+      transform: translateY(-150%);
       padding: 2rem 5rem;
       background-color: var(--white-text);
-      border-radius: 0.5rem;
       width: 20rem;
-      transition: all 350ms;
    }
 }
 
@@ -347,7 +342,6 @@ body {
 .parent:hover {
    cursor: pointer;
    border-radius: 1rem;
-   background-color: var(--menu-hover-color);
 }
 
 /* classes for javascript */
@@ -358,7 +352,15 @@ body {
 /* classes for javascript */
 .parent.active {
    visibility: visible;
-   transform: translateY(0%);
+   max-height: 25rem;
+}
+
+@media (min-width: 769px) {
+   /* classes for javascript */
+   .parent.active {
+      transform: translateY(0%);
+      max-height: unset;
+   }
 }
 
 /* all children */
@@ -419,7 +421,7 @@ body {
    font-weight: var(--font-weight-700);
    color: var(--white-text);
    background: linear-gradient(45deg, var(--very-light-red), var(--light-red));
-   transition: transform 350ms;
+   transition: transform 300ms;
 }
 
 @media (min-width: 769px) {
@@ -459,7 +461,8 @@ body {
 .burger_line {
    width: 4rem;
    border: 0.2rem solid var(--white-text);
-   transition: all 350ms;
+   transition: all 300ms;
+   background-color: var(--white-text);
 }
 
 /* classes for javascript */
@@ -520,7 +523,7 @@ body {
    padding: 1.5rem;
    border: none;
    border-radius: 3rem;
-   transition: all 350ms;
+   transition: all 300ms;
 }
 
 .free_btn {

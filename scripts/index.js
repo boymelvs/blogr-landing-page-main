@@ -8,7 +8,7 @@ const delay = (value) => {
       /* delay on removing show classes */
       setTimeout(() => {
          value.classList.remove("show");
-      }, 150);
+      }, 300);
 
       /* adding active classes to display  */
    } else {
