@@ -966,3 +966,41 @@ footer {
    text-decoration: none;
    color: var(--very-light-red);
 }
+
+/* scroll up arrow */
+.scroll_up {
+   position: fixed;
+   bottom: 4rem;
+   right: 1.5rem;
+   z-index: 999;
+   display: none;
+}
+
+/* classes for js */
+.scroll_up.active {
+   display: block;
+}
+
+.arrowUp {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   color: var(--dark-saturated-cyan-graph-text);
+}
+
+.arrowUp:hover {
+   cursor: pointer;
+   transform: scale(1.2);
+}
+
+.arrow_head {
+   border: 2.5rem solid transparent;
+   border-top: 0;
+   border-bottom: 2.5rem solid red;
+}
+
+.arrow_base {
+   height: 1.5rem;
+   width: 2rem;
+   background-color: red;
+}

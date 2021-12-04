@@ -1,5 +1,6 @@
 "use strict";
 
+/* time for removing/adding classes */
 const delay = (value) => {
    if (value.classList.contains("active")) {
       value.classList.remove("active");
@@ -41,7 +42,8 @@ const selectEachElem = (selects, key) => {
 
       if (select_key === key) {
          addRemoveClasses(select);
-         // console.log("this", select);
+
+         //
       } else if (isClose) {
          delay(select);
          select.classList.remove("active");
@@ -66,7 +68,6 @@ const isActive = (elements, value, lines) => {
       /* listening for single element */
    } else {
       elements.addEventListener("click", () => {
-         /* listener for burger */
          selectEachElem(lines);
          addRemoveClasses(value);
       });
@@ -86,3 +87,10 @@ const arrows = document.querySelectorAll(".arrows");
 const parents = document.querySelectorAll(".parent");
 
 isActive(menuTitles, parents, arrows);
+
+/* listening when to show up_arrow */
+const arrowUP = document.querySelector(".scroll_up"); /* get up_arrow */
+
+window.addEventListener("scroll", () => {
+   window.pageYOffset > 750 ? arrowUP.classList.add("active") : arrowUP.classList.remove("active");
+});
